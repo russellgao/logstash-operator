@@ -1,2 +1,0 @@
-# logstash-operator
-logstash-operator

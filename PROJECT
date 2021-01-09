@@ -1,0 +1,5 @@
+domain: russellgao.cn
+layout: go.kubebuilder.io/v3
+projectName: logstash-operator
+repo: github.com/russellgao/logstash-operator
+version: 3-alpha
