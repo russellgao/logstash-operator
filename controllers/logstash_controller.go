@@ -36,18 +36,9 @@ type LogstashReconciler struct {
 
 //+kubebuilder:rbac:groups=apps.russellgao.cn,resources=logstashes,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups=apps.russellgao.cn,resources=logstashes/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=apps.russellgao.cn,resources=logstashes/finalizers,verbs=update
 
-// Reconcile is part of the main kubernetes reconciliation loop which aims to
-// move the current state of the cluster closer to the desired state.
-// TODO(user): Modify the Reconcile function to compare the state specified by
-// the Logstash object against the actual cluster state, and then
-// perform operations to make the cluster state reflect the state specified by
-// the user.
-//
-// For more details, check Reconcile and its Result here:
-// - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.7.0/pkg/reconcile
-func (r *LogstashReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+func (r *LogstashReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
+	_ = context.Background()
 	_ = r.Log.WithValues("logstash", req.NamespacedName)
 
 	// your logic here
@@ -55,7 +46,6 @@ func (r *LogstashReconciler) Reconcile(ctx context.Context, req ctrl.Request) (c
 	return ctrl.Result{}, nil
 }
 
-// SetupWithManager sets up the controller with the Manager.
 func (r *LogstashReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
 		For(&appsv1alpha1.Logstash{}).

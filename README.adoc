@@ -1,8 +1,0 @@
-= logstash-operator
-:toc:
-:toc-title:
-:toclevels: 5
-:sectnums:
-
-== 说明
-用于快速部署 logstash
